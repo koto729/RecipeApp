@@ -13,6 +13,7 @@ struct MapView: View {
             Text("Create")
                 .navigationTitle("Map")
         }
+        .navigationViewStyle(.stack)
     }
 }
 
