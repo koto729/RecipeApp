@@ -11,7 +11,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             Text("Recipe")
-                .navigationTitle("Recipe APP")
+                .navigationTitle("My Recipe")
         }
     }
 }
