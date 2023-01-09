@@ -1,15 +1,15 @@
 //
-//  API.swift
+//  RecipeModel.swift
 //  RecipeApp
 //
-//  Created by KoWingTo on 9/1/2023.
+//  Created by KoWingTo on 10/1/2023.
 //
 
 import Foundation
-
-class API:ObservableObject{
-    func getData(){
-
+class RecipeModel : ObservableObject{
+    @Published var contacts : [RecipeAPI] = []
+    
+    func fetch(){
         let headers = [
             "X-RapidAPI-Key": "8c644aea87mshb99a670d9cec8abp1cc18fjsn0a0f818a41cd",
             "X-RapidAPI-Host": "recipe-by-api-ninjas.p.rapidapi.com"
@@ -22,17 +22,16 @@ class API:ObservableObject{
         request.allHTTPHeaderFields = headers
 
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            if (error != nil) {
-                print(error)
-            } else {
-                let httpResponse = response as? HTTPURLResponse
-                print(httpResponse)
+        let dataTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
+            if let data = data{
+                self.contacts.removeAll()
+                let decoder = JSONDecoder()
+                if let results = try? decoder.decode([RecipeAPI].self, from: data){
+                    self.contacts = results
+                }
             }
-        })
-
+        }
         dataTask.resume()
     }
 }
-
 

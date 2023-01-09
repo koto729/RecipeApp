@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1B7707296CA9560006C932 /* RecipeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B7706296CA9560006C932 /* RecipeAPI.swift */; };
+		4E1B7708296CA9560006C932 /* RecipeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B7706296CA9560006C932 /* RecipeAPI.swift */; };
+		4E1B770A296CA9C20006C932 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B7709296CA9C20006C932 /* RecipeModel.swift */; };
+		4E1B770B296CA9C20006C932 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B7709296CA9C20006C932 /* RecipeModel.swift */; };
 		4E8847A7296AD27D000B00E9 /* RecipeAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8847A6296AD27D000B00E9 /* RecipeAppApp.swift */; };
 		4E8847A9296AD27D000B00E9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8847A8296AD27D000B00E9 /* ContentView.swift */; };
 		4E8847AB296AD27E000B00E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8847AA296AD27E000B00E9 /* Assets.xcassets */; };
@@ -24,8 +28,6 @@
 		4E8847E8296B52C2000B00E9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8847E6296B52C2000B00E9 /* MapView.swift */; };
 		4E8847EA296B56BF000B00E9 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8847E9296B56BF000B00E9 /* TabBar.swift */; };
 		4E8847EB296B56BF000B00E9 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8847E9296B56BF000B00E9 /* TabBar.swift */; };
-		4EB9BEF0296C1E4F005A456A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9BEEF296C1E4F005A456A /* API.swift */; };
-		4EB9BEF1296C1E4F005A456A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9BEEF296C1E4F005A456A /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E1B7705296C33320006C932 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4E1B7706296CA9560006C932 /* RecipeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAPI.swift; sourceTree = "<group>"; };
+		4E1B7709296CA9C20006C932 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		4E8847A3296AD27D000B00E9 /* RecipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E8847A6296AD27D000B00E9 /* RecipeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAppApp.swift; sourceTree = "<group>"; };
 		4E8847A8296AD27D000B00E9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,7 +68,6 @@
 		4E8847E3296B52B0000B00E9 /* NewRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeView.swift; sourceTree = "<group>"; };
 		4E8847E6296B52C2000B00E9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		4E8847E9296B56BF000B00E9 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		4EB9BEEF296C1E4F005A456A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +122,6 @@
 				4E8847D8296B4DEC000B00E9 /* Views */,
 				4E8847DD296B4EE8000B00E9 /* ViewModels */,
 				4E8847DE296B4F35000B00E9 /* Models */,
-				4E8847DC296B4E8E000B00E9 /* CoreData */,
 				4E8847AA296AD27E000B00E9 /* Assets.xcassets */,
 				4E8847AC296AD27E000B00E9 /* Preview Content */,
 			);
@@ -206,7 +209,10 @@
 		4E8847DE296B4F35000B00E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4EB9BEEF296C1E4F005A456A /* API.swift */,
+				4E1B7706296CA9560006C932 /* RecipeAPI.swift */,
+				4E1B7709296CA9C20006C932 /* RecipeModel.swift */,
+				4E8847DC296B4E8E000B00E9 /* CoreData */,
+				4E1B7705296C33320006C932 /* MyPlayground.playground */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -342,13 +348,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E8847E7296B52C2000B00E9 /* MapView.swift in Sources */,
+				4E1B770A296CA9C20006C932 /* RecipeModel.swift in Sources */,
 				4E8847B0296AD27E000B00E9 /* Persistence.swift in Sources */,
+				4E1B7707296CA9560006C932 /* RecipeAPI.swift in Sources */,
 				4E8847A9296AD27D000B00E9 /* ContentView.swift in Sources */,
 				4E8847EA296B56BF000B00E9 /* TabBar.swift in Sources */,
 				4E8847A7296AD27D000B00E9 /* RecipeAppApp.swift in Sources */,
 				4E8847E4296B52B0000B00E9 /* NewRecipeView.swift in Sources */,
 				4E8847E0296B5274000B00E9 /* HomeView.swift in Sources */,
-				4EB9BEF0296C1E4F005A456A /* API.swift in Sources */,
 				4E8847B3296AD27E000B00E9 /* RecipeApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,8 +364,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EB9BEF1296C1E4F005A456A /* API.swift in Sources */,
+				4E1B770B296CA9C20006C932 /* RecipeModel.swift in Sources */,
 				4E8847BE296AD27E000B00E9 /* RecipeAppTests.swift in Sources */,
+				4E1B7708296CA9560006C932 /* RecipeAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

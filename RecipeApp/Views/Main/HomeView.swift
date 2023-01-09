@@ -8,16 +8,22 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var api = API()
+    @StateObject var model = RecipeModel()
+    
     var body: some View {
         NavigationView {
-            List(api.title) { title in
-                Text(song.name)
+            List{
+                ForEach(model.contacts){
+                    contact in
+                    HStack{
+                        Text(contact.title)
+                    }
+                }
             }
         }
         .navigationViewStyle(.stack)
         .onAppear{
-            api.getData()
+            model.fetch()
         }
     }
 }
