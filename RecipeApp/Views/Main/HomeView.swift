@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject var api = API()
     var body: some View {
         NavigationView {
-            Text("Recipe")
-                .navigationTitle("My Recipe")
+            List(api.title) { title in
+                Text(song.name)
+            }
         }
         .navigationViewStyle(.stack)
+        .onAppear{
+            api.getData()
+        }
     }
 }
 
