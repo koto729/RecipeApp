@@ -16,7 +16,7 @@ struct HomeView: View {
                 ForEach(model.contacts){
                     contact in
                     HStack{
-                        Text(contact.title)
+                        Text(contact.title)        .navigationTitle("Create New Recipe")
                     }
                 }
             }
