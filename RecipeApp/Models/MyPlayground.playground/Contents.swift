@@ -10,12 +10,11 @@ func fetch(){
         "X-RapidAPI-Host": "recipe-by-api-ninjas.p.rapidapi.com"
     ]
 
-    let request = NSMutableURLRequest(url: NSURL(string: "https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=italian%20wedding%20soup")! as URL,
+    let request = NSMutableURLRequest(url: NSURL(string: "https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=soup")! as URL,
                                             cachePolicy: .useProtocolCachePolicy,
                                         timeoutInterval: 10.0)
     request.httpMethod = "GET"
     request.allHTTPHeaderFields = headers
-    
     let task = URLSession.shared.dataTask(with: request as URLRequest) {(data, response, error) in
         guard let data = data else { return }
         print(String(data: data, encoding: .utf8)!)

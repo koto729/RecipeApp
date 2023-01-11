@@ -6,12 +6,24 @@
 //
 
 import Foundation
+
+//@MainActor
 class RecipeModel : ObservableObject{
     @Published var contacts: [RecipeAPI] = []
     
     func fetch(){
-        let url = URL(string: "https://api.spoonacular.com/recipes/random?number=2&apiKey=ddf87b6e52fc45ca83af7599f55e6e08")!
-        let request = URLRequest(url: url)
+        let headers = [
+            "X-RapidAPI-Key": "8c644aea87mshb99a670d9cec8abp1cc18fjsn0a0f818a41cd",
+            "X-RapidAPI-Host": "recipe-by-api-ninjas.p.rapidapi.com"
+        ]
+ 
+        let request = NSMutableURLRequest(url: NSURL(string: "https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=soup")! as URL,
+                                                cachePolicy: .useProtocolCachePolicy,
+                                            timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+
+
 
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
