@@ -15,11 +15,11 @@ struct HomeView: View {
             List{
                 ForEach(model.contacts){
                     contact in
-                    HStack{
-                        Text(contact.title)        .navigationTitle("My Recipe")
-                    }
+                    Text(contact.title)
+                        .navigationTitle("My Recipe")
                 }
             }
+            
         }
         .navigationViewStyle(.stack)
         .onAppear{
@@ -30,6 +30,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        //HomeView()
     }
 }

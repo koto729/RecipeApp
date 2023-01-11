@@ -7,9 +7,11 @@
 
 import Foundation
 
-struct RecipeAPI : Codable, Identifiable{
-    var id:String{
+struct RecipeAPI: Codable, Identifiable{
+    var id: String{
         self.title
     }
-    var title : String
+    var title: String
+
 }
+
