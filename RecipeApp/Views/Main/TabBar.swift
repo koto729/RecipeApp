@@ -11,9 +11,14 @@ struct TabBar: View {
     @StateObject var recipeModel = RecipeModel()
     var body: some View {
         TabView{
+
+            MyRecipeView()
+                .tabItem{
+                    Label("My Recipe", systemImage: "heart")
+                }
             HomeView(contacts: recipeModel.contacts)
                 .tabItem{
-                    Label("Home", systemImage: "house")
+                    Label("Find", systemImage: "book")
                 }
             NewRecipeView()
                 .tabItem{

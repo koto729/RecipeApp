@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Recipedetail: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
     let contact: RecipeAPI
     var body: some View {
         ScrollView{
@@ -31,6 +33,13 @@ struct Recipedetail: View {
                         Text(contact.instructions)
                     }
                 }
+            Button("add to my recipe"){
+                let add = Myrecipe(context: viewContext)
+                add.title = contact.title
+                add.instructions = contact.instructions
+                add.ingredients = contact.ingredients
+                try! viewContext.save()
+            }
             }
         }
     
