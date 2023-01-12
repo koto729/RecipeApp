@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct RecipeAPI: Codable, CustomStringConvertible{
-    let id: UUID
+struct RecipeAPI: Codable, CustomStringConvertible, Identifiable{
+    var id: String{
+        title
+    }
     let title: String
     let ingredients: String
     let instructions: String
@@ -17,7 +19,6 @@ struct RecipeAPI: Codable, CustomStringConvertible{
     }
     
     enum CodingKeys: String, CodingKey{
-        case id
         case title
         case ingredients
         case instructions
@@ -25,7 +26,6 @@ struct RecipeAPI: Codable, CustomStringConvertible{
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decode(UUID.self, forKey: .id)
         self.title = try container.decode(String.self, forKey: .title)
         self.ingredients = try container.decode(String.self, forKey: .ingredients)
         self.instructions = try container.decode(String.self, forKey: .instructions)

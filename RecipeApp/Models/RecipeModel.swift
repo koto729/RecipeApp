@@ -34,7 +34,9 @@ class RecipeModel : ObservableObject{
                 let decoder = JSONDecoder()
                 do{
                     let contacts = try decoder.decode([RecipeAPI].self, from: data)
-                    print(contacts)
+                    DispatchQueue.main.async {
+                        self.contacts = contacts
+                    }                    
                 }catch{
                     print(error)
                 }

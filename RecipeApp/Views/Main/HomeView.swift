@@ -14,7 +14,12 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            Text("a")
+            List{
+                ForEach(contacts){ contact in
+                    Text(contact.title)
+                    
+                }
+            }
         }
     }
 }
