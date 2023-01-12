@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct Callout: View {
+    var annotation: AnnotationItem?
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Text(annotation!.title)
+                .font(.callout)
+        }
+        .frame(width: 100, height: 36)
+        .background(.white)
+        .cornerRadius(4)
+        .shadow(radius: 10)
+        .offset(y: -40)
     }
 }
 
-struct Callout_Previews: PreviewProvider {
-    static var previews: some View {
-        Callout()
-    }
-}

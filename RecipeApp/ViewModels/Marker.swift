@@ -23,5 +23,9 @@ struct AnnotationItem: Identifiable{
 }
 var annotations: [AnnotationItem] = [
     .init("Wellcome", latitude: 22.387815771908617, longitude: 114.19607414667806),
-    .init("DS Groceries", latitude: 22.387962959244813, longitude:  114.1955750523751)
+    .init("DS Groceries", latitude: 22.387962959244813, longitude:  114.1955750523751),
+    .init("華潤萬家便利超市", latitude: 22.385423374732127, longitude:  114.19890099146608),
+    .init("U Select", latitude: 22.385125764140238, longitude:  114.19865422824657),
+    .init("Kai Bo Food Supermarket", latitude: 22.384993699207627, longitude:  114.1916343567846),
+    .init("PARKnSHOP ", latitude: 22.38746786849196, longitude: 114.20272644119126)
 ]
