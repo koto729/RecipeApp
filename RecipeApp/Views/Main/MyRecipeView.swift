@@ -16,15 +16,17 @@ struct MyRecipeView: View {
     ) private var mydata: FetchedResults<Myrecipe>
     var body: some View {
     
-        
         NavigationView {
             List{
-                ForEach(mydata){mydata in
-                    Text(mydata.title ?? "no")
-                    
+                ForEach(mydata){ mydata in
+                    NavigationLink{
+                        Myrecipedetail(mydata: mydata)
+                    } label: {
+                        Text(mydata.title ?? "have not data")
+                    }
                 }
             }
-                .navigationTitle("My Recipe")
+            .navigationTitle("My Recipe")
         }
     }
 }

@@ -1,23 +1,23 @@
 //
-//  Recipedetail.swift
+//  Myrecipedetail.swift
 //  RecipeApp
 //
-//  Created by KoWingTo on 12/1/2023.
+//  Created by KoWingTo on 13/1/2023.
 //
 
 import SwiftUI
 
-struct Recipedetail: View {
+struct Myrecipedetail: View {
     @State private var isPressed = false
     @State private var counter = 0
     @Environment(\.managedObjectContext) private var viewContext
     
-    let contact: RecipeAPI
+    let mydata: Myrecipe
     var body: some View {
-
+        
         ScrollView{
             VStack(spacing: 30){
-                Text(contact.title)
+                Text(mydata.title ?? "error")
                     .font(.largeTitle)
                     .bold()
                     .multilineTextAlignment(.center)
@@ -30,7 +30,7 @@ struct Recipedetail: View {
                         .font(.headline)
                         .opacity(isPressed ? 0.4 : 1.0)
                         .scaleEffect(isPressed ? 1.2 : 1.0)
-                    Text(contact.ingredients)
+                    Text(mydata.ingredients ?? "error")
                         .opacity(isPressed ? 0.4 : 1.0)
                         .scaleEffect(isPressed ? 1.2 : 1.0)
                 }
@@ -41,45 +41,43 @@ struct Recipedetail: View {
                         .scaleEffect(isPressed ? 1.2 : 1.0)
                         .font(.headline)
                     
-                    Text(contact.instructions)
+                    Text(mydata.instructions ?? "error")
                         .opacity(isPressed ? 0.4 : 1.0)
                         .scaleEffect(isPressed ? 1.2 : 1.0)
                 }
+            }
+            ZStack {
+                Capsule()
+                    .fill(Color.blue)
+                    .frame(width: 150, height: 50)
                 
-                ZStack {
-                    Capsule()
-                        .fill(Color.blue)
-                        .frame(width: 150, height: 50)
-
+                Text("Delete")
+                    .foregroundColor(.white)
                     
-                    Text("Like")
-                        .foregroundColor(.white)
-                        
+            }
+            .scaleEffect(isPressed ? 1.05 : 1.0)
+            .opacity(isPressed ? 0.6 : 1.0)
+            .onTapGesture {
+                let del = try! viewContext.fetch(Myrecipe.fetchRequest())
+                del.filter{ del in
+                    del.title == mydata.title
+                }.forEach(viewContext.delete)
+                try! viewContext.save()
+            }
+            .pressEvents {
+                // On press
+                withAnimation(.easeInOut(duration: 0.1)) {
+                    isPressed = true
                 }
-                .scaleEffect(isPressed ? 1.05 : 1.0)
-                .opacity(isPressed ? 0.6 : 1.0)
-                .onTapGesture {
-                    let add = Myrecipe(context: viewContext)
-                    add.title = contact.title
-                    add.instructions = contact.instructions
-                    add.ingredients = contact.ingredients
-                    try! viewContext.save()
-                }
-                .pressEvents {
-                    // On press
-                    withAnimation(.easeInOut(duration: 0.1)) {
-                        isPressed = true
-                    }
-                } onRelease: {
-                    withAnimation {
-                        isPressed = false
-                    }
+            } onRelease: {
+                withAnimation {
+                    isPressed = false
                 }
             }
         }
-            
-        }
-    
+        
+    }
 }
+    
 
 

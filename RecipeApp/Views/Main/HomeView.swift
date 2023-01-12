@@ -25,7 +25,7 @@ struct HomeView: View {
                     
                 }
             }
-            .navigationTitle("My Recipe")
+            .navigationTitle("Find")
         }
     }
 }
