@@ -9,8 +9,11 @@ import Foundation
 
 //@MainActor
 class RecipeModel : ObservableObject{
-    @Published var contacts: [RecipeAPI] = []
+    @Published var contacts = [RecipeAPI]()
     
+    init(){
+        fetch()
+    }
     func fetch(){
         let headers = [
             "X-RapidAPI-Key": "8c644aea87mshb99a670d9cec8abp1cc18fjsn0a0f818a41cd",
@@ -26,13 +29,16 @@ class RecipeModel : ObservableObject{
 
 
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest) {(data, response, error) in
+        let dataTask = session.dataTask(with: request as URLRequest) { data, response, error in
             if let data = data{
-                self.contacts.removeAll()
                 let decoder = JSONDecoder()
-                if let results = try? decoder.decode([RecipeAPI].self, from: data){
-                    self.contacts = results
+                do{
+                    let contacts = try decoder.decode([RecipeAPI].self, from: data)
+                    print(contacts)
+                }catch{
+                    print(error)
                 }
+                
             }
         }
         dataTask.resume()

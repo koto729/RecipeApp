@@ -8,31 +8,19 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var model = RecipeModel()
+    //@StateObject var RecipeModel = RecipeModel()
+    let contacts: [RecipeAPI]
     @State private var searchText: String = ""
     
     var body: some View {
         NavigationView {
-            List{
-                    ForEach(model.contacts){
-                        contact in
-                        HStack{
-                        Text(contact.title)
-                    }
-                }
-            }
-            .searchable(text: $searchText)
-            
-            .onAppear{
-                model.fetch()
-            }
-            .navigationTitle("My Recipe")
+            Text("a")
         }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(contacts: [RecipeAPI]())
     }
 }
