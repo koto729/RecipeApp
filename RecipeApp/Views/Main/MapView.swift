@@ -45,7 +45,7 @@ struct MapView: View {
             }
                 
         }
-        //.navigationViewStyle(.stack)
+  
     }
 }
 

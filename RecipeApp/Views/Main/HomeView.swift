@@ -11,7 +11,6 @@ struct HomeView: View {
 
     let contacts: [RecipeAPI]
     let chickens: [RecipeAPI]
-    @State private var searchText: String = ""
     
     var body: some View {
         

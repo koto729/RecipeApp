@@ -21,10 +21,7 @@ struct TabBar: View {
                 .tabItem{
                     Label("Find", systemImage: "book")
                 }
-            NewRecipeView()
-                .tabItem{
-                    Label("Create recipe", systemImage: "plus")
-                }
+
             MapView()
                 .tabItem{
                     Label("Map", systemImage: "map")
