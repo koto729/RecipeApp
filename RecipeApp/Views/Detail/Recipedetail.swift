@@ -12,12 +12,13 @@ struct Recipedetail: View {
     @State private var counter = 0
     @Environment(\.managedObjectContext) private var viewContext
     
-    let contact: RecipeAPI
+   // let contact: RecipeAPI
+    //let chicken: RecipeAPI
+    let food: RecipeAPI
     var body: some View {
-
         ScrollView{
             VStack(spacing: 30){
-                Text(contact.title)
+                Text(food.title)
                     .font(.largeTitle)
                     .bold()
                     .multilineTextAlignment(.center)
@@ -30,7 +31,7 @@ struct Recipedetail: View {
                         .font(.headline)
                         .opacity(isPressed ? 0.4 : 1.0)
                         .scaleEffect(isPressed ? 1.2 : 1.0)
-                    Text(contact.ingredients)
+                    Text(food.ingredients)
                         .opacity(isPressed ? 0.4 : 1.0)
                         .scaleEffect(isPressed ? 1.2 : 1.0)
                 }
@@ -41,7 +42,7 @@ struct Recipedetail: View {
                         .scaleEffect(isPressed ? 1.2 : 1.0)
                         .font(.headline)
                     
-                    Text(contact.instructions)
+                    Text(food.instructions)
                         .opacity(isPressed ? 0.4 : 1.0)
                         .scaleEffect(isPressed ? 1.2 : 1.0)
                 }
@@ -60,9 +61,9 @@ struct Recipedetail: View {
                 .opacity(isPressed ? 0.6 : 1.0)
                 .onTapGesture {
                     let add = Myrecipe(context: viewContext)
-                    add.title = contact.title
-                    add.instructions = contact.instructions
-                    add.ingredients = contact.ingredients
+                    add.title = food.title
+                    add.instructions = food.instructions
+                    add.ingredients = food.ingredients
                     try! viewContext.save()
                 }
                 .pressEvents {

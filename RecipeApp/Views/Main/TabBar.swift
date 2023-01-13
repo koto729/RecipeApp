@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TabBar: View {
     @StateObject var recipeModel = RecipeModel()
+    @StateObject var recipeModel2 = RecipeModel_2()
     var body: some View {
         TabView{
 
@@ -16,7 +17,7 @@ struct TabBar: View {
                 .tabItem{
                     Label("My Recipe", systemImage: "heart")
                 }
-            HomeView(contacts: recipeModel.contacts)
+            HomeView(contacts: recipeModel.contacts,chickens:  recipeModel2.chickens)
                 .tabItem{
                     Label("Find", systemImage: "book")
                 }

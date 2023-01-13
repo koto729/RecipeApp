@@ -10,19 +10,28 @@ import SwiftUI
 struct HomeView: View {
 
     let contacts: [RecipeAPI]
+    let chickens: [RecipeAPI]
     @State private var searchText: String = ""
     
     var body: some View {
+        
         NavigationView {
-            List{
-                ForEach(contacts){ contact in
-                    NavigationLink{
-                        Recipedetail(contact: contact)
-                    } label: {
-                        Text(contact.title)
+            VStack{
+                List{
+                    ForEach(contacts){ contact in
+                        NavigationLink{
+                            Recipedetail(food: contact)
+                        } label: {
+                            Text(contact.title)
+                        }
                     }
-                    //Text(contact.title)
-                    
+                    ForEach(chickens) { chicken in
+                        NavigationLink{
+                            Recipedetail(food: chicken)
+                        } label: {
+                            Text(chicken.title)
+                        }
+                    }
                 }
             }
             .navigationTitle("Find")
@@ -32,6 +41,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(contacts: [RecipeAPI]())
+        HomeView(contacts: [RecipeAPI](),chickens: [RecipeAPI]())
     }
 }
